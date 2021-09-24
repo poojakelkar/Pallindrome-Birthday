@@ -13,7 +13,7 @@ function convertToStr(date) {
     var datestr = {
         day: "",
         month: "",
-        year: ""
+        year: "",
     };
     if (date.day < 10) {
         datestr.day = "0" + date.day;
@@ -47,7 +47,6 @@ function getAllDateFormat(date) {
 function isLeapYear(year) {
     if (year % 400 === 0) {
         return true;
-
     }
     if (year % 100 === 0) {
         return false;
@@ -55,46 +54,44 @@ function isLeapYear(year) {
     if (year % 4 === 0) {
         return true;
     }
-    return false
+    return false;
 }
 
 function getNextDate(date) {
-
     var day = date.day + 1;
     var month = date.month;
     var year = date.year;
 
     var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     if (month == 2) {
-
+        debugger;
         if (isLeapYear(year)) {
             if (day > 29) {
-                day = 1
-                month++
-            } else {
-                if (day > 28) {
-                    day = 1
-                    month++
-                }
+                day = 1;
+                month++;
             }
-
+            }else {
+                if (day > 28) {
+                    day = 1;
+                    month++;
+                }
         }
-    }else {
+    } else {
         if (day > daysInMonth[month - 1]) {
             day = 1;
-            month++
+            month++;
         }
     }
 
     if (month > 12) {
-        month = 1
-        year++
+        month = 1;
+        year++;
     }
     return {
         day: day,
         month: month,
-        year: year
-    }
+        year: year,
+    };
 }
 
 function checkPallindromeForAllDates(date) {
@@ -111,8 +108,8 @@ function checkPallindromeForAllDates(date) {
 }
 
 var date = {
-    day: 31,
-    month: 12,
+    day: 29,
+    month: 2,
     year: 2021,
 };
 console.log(getNextDate(date));
